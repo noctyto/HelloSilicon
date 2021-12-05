@@ -1,0 +1,5 @@
+HelloWorld: HelloWorld_iOS.o
+	ld -iphoneos_version_min 14.0.0 -o HelloWorld_iOS HelloWorld_iOS.o -lSystem -syslibroot `xcrun -sdk iphoneos --show-sdk-path` -e _start -arch arm64 
+
+HelloWorld.o: HelloWorld.s
+	gcc  -c -target arm64-apple-ios14.0 -isysroot `xcrun -sdk iphoneos --show-sdk-path` ./HelloWorld_iOS.s -o HelloWorld_iOS.o
